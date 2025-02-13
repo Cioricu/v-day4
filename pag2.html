@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>/* Stilizare pentru fundalul paginii */
+body {
+    background-color: #f7c7d3; /* Roz deschis pentru fundal */
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+}
+
+/* Stilizarea containerului principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+/* Stilizare pentru textul din pre */
+pre {
+    color: #ff66b2; /* Roz mai deschis */
+    font-size: 1em;
+    font-family: 'Comic Sans MS', sans-serif; /* Font drăguț */
+    text-shadow: 0 0 10px #ff66b2, 0 0 20px #ff66b2; /* Efect neon */
+}
+
+/* Stilizare pentru titlu */
+h1 {
+    font-size: 36px;
+    color: #ff2a68; /* Roz neon */
+}
+
+/* Stilizare pentru ceasul de tip countdown */
+.time-counter-container {
+    background-color: rgba(255, 255, 255, 0.2); /* Fundal semitransparent */
+    padding: 20px;
+    border: 2px solid #ff2a68; /* Contur roz neon */
+    border-radius: 10px;
+    margin-top: 20px;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Stilizare pentru textul ceasului */
+.time-counter {
+    font-size: 24px;
+    color: #ff2a68; /* Roz neon */
+    font-weight: bold;
+    text-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68;
+}
+
+/* Stilizare pentru textul "Zile împreună" sub ceas */
+.time-text {
+    font-size: 18px;
+    color: #ff2a68; /* Roz neon */
+    margin-top: 10px;
+}
+
+/* Stilizare pentru butoane */
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+#da {
+    background-color: #4CAF50; /* Verde pentru "DA" */
+    color: white;
+}
+
+#nu {
+    background-color: #ff2a68; /* Roșu pentru "NU" */
+    color: white;
+}
+
+/* Stilizare pentru galeria de imagini */
+.image-gallery {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.image-gallery img {
+    width: 100px; /* Lățimea fiecărei imagini */
+    height: 100px; /* Înălțimea fiecărei imagini */
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Creăm efectul neon cu box-shadow */
+    box-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68;
+}
+
+/* Efect la hover pentru imagini (mărește și intensifică neonul) */
+.image-gallery img:hover {
+    transform: scale(2); /* Mărește imaginea de 2 ori */
+    box-shadow: 0 0 20px #ff2a68, 0 0 30px #ff2a68, 0 0 40px #ff2a68; /* Intensificăm efectul de neon */
+}
+
+/* Stilizare pentru imaginea mare (image2) */
+.image-large {
+    margin-top: 30px;
+}
+
+.image-large img {
+    width: 300px; /* Mărim imaginea image2 */
+    height: 300px; /* Mărim imaginea image2 */
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68; /* Efect neon */
+}
+
+/* Efect la hover pentru imaginea mare */
+.image-large img:hover {
+    transform: scale(1.1); /* Mărește imaginea la hover */
+    box-shadow: 0 0 20px #ff2a68, 0 0 30px #ff2a68, 0 0 40px #ff2a68; /* Intensificăm efectul de neon */
+}
+</style>
+        </head>
+        <body>
+            
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mulțumesc pentru răspuns!</title>
+    <link rel="stylesheet" href="stil_nou.css">
+
+
+    <div class="container">
+        <h1>Love u boo &lt;3</h1>
+        <pre>            Ai apăsat de bună voie și nesilită de nimeni pe „Da”.
+             Te iubesc mult, Ingrid, îmi este foarte dor de tine, iubita mea.
+              Este al doilea Valentine’s Day împreună, e crazy!
+Vreau să știi că te iubesc super mult și îți mulțumesc pentru tot ce ai făcut pentru mine ,
+ pentru fiecare seară în care ai stat cu mine pe apel, ai vorbit cu mine și mi-ai suportat crizele mele existențiale &lt;3
+Sper că îți place ce ți-am făcut și să știi că te iubesc mult rau de tot, prințeso.
+        </pre>
+
+        <!-- Timpul de la 27 decembrie 2023 -->
+        <div class="time-counter-container">
+            <div class="time-counter" id="counter">1 ani 1 luni 24 zile 18 ore 52 minute 20 secunde</div>
+            <p class="time-text">Zile împreună</p>
+        </div>
+    </div>
+
+    <script>
+        // Ceasul care numără timpul de la 27 decembrie 2023
+        var startDate = new Date('2023-12-27T00:00:00');
+
+        function updateCounter() {
+            var now = new Date();
+            var timeDifference = now - startDate;
+
+            // Calcularea anilor, lunilor, zilelor, orelor, minutelor și secundelor
+            var years = Math.floor(timeDifference / (1000 * 60 * 60 * 24 * 365));
+            var months = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 365)) / (1000 * 60 * 60 * 24 * 30));
+            var days = Math.floor((timeDifference % (1000 * 60 * 60 * 24 * 30)) / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            // Afișarea timpului
+            document.getElementById('counter').innerHTML = 
+                years + " ani " + 
+                months + " luni " + 
+                days + " zile " + 
+                hours + " ore " + 
+                minutes + " minute " + 
+                seconds + " secunde";
+        }
+
+        // Actualizează ceasul la fiecare secundă
+        setInterval(updateCounter, 1000);
+    </script>
+
+
+
+            <script></script>
+        
+    
+</body>

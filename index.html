@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+            <style>/* stil.css */
+body {
+    background-color: #f7c7d3; /* Roz deschis pentru fundalul paginii principale */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+}
+
+h1 {
+    color: #ff2a68; /* Text neon roșu */
+    text-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    transition: transform 0.2s ease;
+}
+
+#da {
+    background-color: #4CAF50; /* Verde pentru "DA" */
+    color: white;
+}
+
+#nu {
+    background-color: #ff2a68; /* Roșu pentru "NU" */
+    color: white;
+}
+
+/* Stilizare pentru galeria de imagini */
+.image-gallery {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.image-gallery img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68;
+}
+
+.image-gallery img:hover {
+    transform: scale(2);
+    box-shadow: 0 0 20px #ff2a68, 0 0 30px #ff2a68, 0 0 40px #ff2a68;
+}
+
+/* Efect la hover pentru imaginea mare */
+.image-large img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #ff2a68, 0 0 20px #ff2a68, 0 0 30px #ff2a68;
+}
+
+.image-large img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff2a68, 0 0 30px #ff2a68, 0 0 40px #ff2a68;
+}
+
+/* Inimi animate pe fundal */
+@keyframes heartAnimation {
+    0% {
+        top: -50px;
+        left: -50px;
+        transform: rotate(0deg);
+    }
+    25% {
+        top: 150px;
+        left: 200px;
+        transform: rotate(45deg);
+    }
+    50% {
+        top: 300px;
+        left: 400px;
+        transform: rotate(90deg);
+    }
+    75% {
+        top: 450px;
+        left: 600px;
+        transform: rotate(135deg);
+    }
+    100% {
+        top: 600px;
+        left: 800px;
+        transform: rotate(180deg);
+    }
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border-left: 10px solid #ff2a68;
+    border-right: 10px solid #ff2a68;
+    border-bottom: 10px solid #ff2a68;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    animation: heartAnimation 6s infinite ease-in-out;
+    opacity: 0.8;
+}
+
+/* Adăugăm mai multe inimi pe fundal */
+.heart-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+</style>
+        </head>
+        <body>
+            
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Întrebare de Valentine's Day</title>
+    <link rel="stylesheet" href="stil.css">
+
+
+    <div class="container">
+        <h1>Will you be my valentine pookie?</h1>
+
+        <!-- Secțiunea cu imagini -->
+        <div class="image-gallery">
+            <img src="hellokitty.jpg" alt="Imagine 1">
+            <img src="mc.jpg" alt="Imagine 2" class="image-large">
+            <img src="cu.jpeg" alt="Imagine 3">
+            <img src="vday.jpeg" alt="Imagine 4">
+        </div>
+
+        <div class="buttons">
+            <button id="da" onclick="increaseDa()">DA</button>
+            <button id="nu" onclick="decreaseNu()">NU</button>
+        </div>
+    </div>
+
+    <script>
+        var nuButtonClicked = false;
+        var scaleValue = 1.2;  // Dimensiunea inițială a butonului "NU"
+
+        function decreaseNu() {
+            var daButton = document.getElementById("da");
+            var nuButton = document.getElementById("nu");
+
+            if (scaleValue > 0.1) {
+                scaleValue -= 0.4;  // Reducem dimensiunea butonului "NU" la fiecare clic
+                nuButton.style.transform = "scale(" + scaleValue + ")";  // Aplicăm transformarea
+            } else {
+                nuButton.style.display = "none";  // Ascundem butonul când ajunge la o dimensiune mică
+            }
+
+            // Mărește butonul "DA"
+            daButton.style.transform = "scale(1.4)";
+        }
+
+        function increaseDa() {
+            var daButton = document.getElementById("da");
+            // Mărește butonul "DA" permanent
+            daButton.style.transform = "scale(1.4)";
+            window.location.href = "pag2.html"; // Înlocuiește cu pagina dorită
+        }
+    </script>
+
+
+
+            <script>// Write JavaScript here</script>
+        
+    
+</body>
